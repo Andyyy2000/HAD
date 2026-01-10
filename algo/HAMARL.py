@@ -159,19 +159,3 @@ class HAC(object):
         self.DuelDQN_optimizer.step()
         self.DQN_learn_step_counter += 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
