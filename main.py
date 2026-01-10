@@ -46,7 +46,7 @@ def main():
             matrix_state_ = torch.Tensor(matrix_state[np.newaxis, :])
             actions = model.choose_low_action(matrix_state_, high_command, t, flag)
             actions = np.array(actions[0].detach())
-            next_state, next_sparse, reward = env.step(high_command_, actions)   # reward: (5, 1)
+            next_state, next_sparse, reward = env.step(high_command_, actions)  
             next_state = np.abs(np.mean(next_state, axis=2))
             low_buffer.restore_transition(matrix_state, high_command_, actions, reward, next_state)
             low_rewards.append(reward.sum())
@@ -77,4 +77,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
